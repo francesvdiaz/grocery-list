@@ -1,7 +1,7 @@
 window.addEventListener("load", function()  {
   const button = document.getElementById("enter");
 
-  button.addEventListener("click", function(event) {
+  button.addEventListener("click", function(event){
     event.preventDefault();
   
     let item1 = document.getElementById("item1").value;
@@ -12,19 +12,24 @@ window.addEventListener("load", function()  {
 
     const items = [item1,item2,item3,item4,item5];
   
+    items.sort();
+
     const body = document.querySelector("body");
     const div = document.createElement("div");
     body.append(div);
 
     const list = document.createElement("ul");
-    ul.setAttribute("id", "groceries");
-    body.append(list);
+    list.setAttribute("id", "groceries");
+    div.append(list);
 
     items.forEach(function (element) {
-      element.upperCase;
+      element = element.toUpperCase();
       li = document.createElement("li");
-      li.append(element);
+      li.textContent = element;
       list.append(li);
+    });
+    const form = document.getElementById("input");
+    form.classList.add("hidden");
   });
-});
 }); 
+
